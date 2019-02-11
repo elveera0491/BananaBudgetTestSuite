@@ -47,13 +47,20 @@ public class APIGetTest extends APIGETBaseTest {
 		GetTheGETEndpointResponseforTotalCosts("2019-09-12", 365);
 	}
 	
+	//Boundary value for numberOfDays
 	public void testNegative_ValidateTotalCostResponseFornumberOfDaysgreaterThan365() {
-		GetTheGETEndpointResponseforTotalCosts("2019-09-12", 366);
+		GetTheGETEndpointResponseforTotalCosts("02-10-2019", 366);
+				
+	}
+	//Boundary value for numberOfDays
+	public void testNegative_ValidateTotalCostResponseFornumberOfDayslessThan1() {
+		GetTheGETEndpointResponseforTotalCosts("02-10-2019", 0);
 				
 	}
 	
-	public void testNegative_ValidateTotalCostResponseFornumberOfDayslessThan1() {
-		GetTheGETEndpointResponseforTotalCosts("2019-09-12", 0);
-				
+	//Invalid date format
+	public void testNegative_ValidateTotalCostResponseForInvalidDate() {
+		GetTheGETEndpointResponseforTotalCosts("21-11-2019", 15);
+
 	}
 }
