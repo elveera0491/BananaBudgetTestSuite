@@ -1,5 +1,11 @@
 package core;
 
+import java.util.Map;
+import java.util.logging.Logger;
+
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+
 public class TestUtils {
 
 	private static final Logger log = Loggerfactory.getLogger(TestUtils.class);
@@ -9,7 +15,7 @@ public class TestUtils {
 			RequestSpecification request = null;
 			if (httpMethod.equals(HttpMethod.GET)) {
 				request = given().relaxedHTTPSValidation("TLSv1.2")
-						.log().all()
+						.log().all();
 			} else {
 				request = given().relaxedHTTPSValidation("TLSv1.2")
 						.log().all()

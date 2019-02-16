@@ -1,9 +1,14 @@
 package baseUtil;
 
+import java.awt.PageAttributes.MediaType;
 import java.lang.reflect.Method;
 import java.util.logging.Logger;
 
 import javax.xml.ws.Response;
+
+import org.testng.Assert;
+import org.testng.ITestResult;
+import org.testng.annotations.BeforeMethod;
 
 import core.TestMetadata;
 import core.TestUtils;
@@ -21,8 +26,8 @@ public class APIGETBaseTest {
 		this.baseUrl = baseUrl;
 	}
 	
-	public APIBaseTest(Logger log) {
-		
+	public APIGETBaseTest(Logger log) {
+		this.log =log;
 	}
 	public APIGETBaseTest(Logger log, String baseUrl) {
 		this.baseUrl = baseUrl;
@@ -108,7 +113,7 @@ public class APIGETBaseTest {
 				printHeader(jira, title);
 				
 			}
-			System.out.println(x);
+			System.out.println();
 			System.out.println(" Http Method: " + httpMethod.toString());
 			System.out.println(" MediaType: " + mediaType.toString());
 			System.out.println(" Filename: " + filename);
@@ -139,7 +144,7 @@ public class APIGETBaseTest {
 	public Response GetTheGETEndpointResponseforTotalCosts(String startDate, int numberOfDays) {
 		Response response = null;
 		String baseUrl = null;
-		baseUrl= "https://bananabudget.azurewebsites.net/?startDate=startDate&numberOfDays=numberOfDays"
+		baseUrl= "https://bananabudget.azurewebsites.net/?startDate=startDate&numberOfDays=numberOfDays";
 		try {
 			response = run(baseUrl, HttpMethod.GET, null);
 			response.then().statusCode(200);

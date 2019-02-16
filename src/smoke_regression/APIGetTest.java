@@ -2,14 +2,17 @@ package smoke_regression;
 
 import java.util.logging.Logger;
 
+import org.testng.annotations.BeforeTest;
+
 import baseUtil.APIGETBaseTest;
+import io.restassured.path.json.JsonPath;
 
 public class APIGetTest extends APIGETBaseTest {
 	
 	private static String GET_URL_PATH = null;
 	private static final Logger log = LoggerFactory.getLogger(APIGetTest.class);
 	private HttpUtil httputil = new HttpUtil();
-	private JSONParser parser = new JSONParser();
+	private JSONParser parser = new JsonPath();
 	private long totalCost = 0;
 	
 
